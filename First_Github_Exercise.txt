@@ -1,0 +1,17 @@
+GitHub Exercise
+
+This is a simple exercise designed to give you practice using GitHub. Additionally the following questions are meant to stimulate you to think about how innovation arises and propagates. Type your answers and commit them to your repository as outlined in the “Completing Your First Exercise With Git Reading Card” document. Be ready to share these answers <briefly> in the discussion section.
+
+
+* Bill Gates or Gary Kidall? Thomas Edison or Nicola Tesla? Rosalind Franklin or Watson and Crick? Steve(Jobs or Wozniak)?
+
+Bill Gates, Nicola Tesla, Rosalind Franklin, Steve Wozniak
+
+
+* How might modern data science be disruptive to your industry? 
+
+	Modern data science in the food and beverage/agriculture industry will revolutionize the way companies do business.  I believe the company with the highest data science capability will be the leader in their category.  The way we do business will change.  There will be a more informed strategy from planning what to plant to customer interaction.  An end to end transformation will undoubtedly occur with the right data science implementation.
+
+	Modern data science will give our company the edge over our competitors.  Now a days processes for manufacturing are somewhat similar from company to company.  As the world's largest gourmet baby potato company, Tasteful Selections is in the lead technologically (industrial controls systems, robotics, and automation).  However, I feel the gap in technology will close sooner than the gap in descriptive, predictive, and prescriptive analytics.  That said, data science will be the competitive edge we can maintain the longest. 
+
+	The level of data science within many agriculture companies located in California's Central Valley is what I would call aspirational.  My goal is to deliver the highest caliber of data science to my company.  I strive to lead the company through our data science journey, to achieve a level of a company transformed by harnessing data to develop value added insights. 

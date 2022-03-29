@@ -1,0 +1,46 @@
+Last login: Tue Jan 14 20:53:24 on ttys002
+samueljohngomez@Samuels-MBP ~ % pwd
+/Users/samueljohngomez
+samueljohngomez@Samuels-MBP ~ % cd Desktop/python_course/assignments_upstream_spring20/SUBMISSIONS
+samueljohngomez@Samuels-MBP SUBMISSIONS % mkdir week_01
+samueljohngomez@Samuels-MBP SUBMISSIONS % ls
+First_Github_Exercise.txt	week_01
+samueljohngomez@Samuels-MBP SUBMISSIONS % cd week_01
+samueljohngomez@Samuels-MBP week_01 % mkdir s1
+samueljohngomez@Samuels-MBP week_01 % cd s1
+samueljohngomez@Samuels-MBP s1 % mkdir s2
+samueljohngomez@Samuels-MBP s1 % mkdir s3
+samueljohngomez@Samuels-MBP s1 % cd s2
+samueljohngomez@Samuels-MBP s2 % mkdir Advanced
+samueljohngomez@Samuels-MBP s2 % cd ..
+samueljohngomez@Samuels-MBP s1 % cd s3
+samueljohngomez@Samuels-MBP s3 % touch conf.txt
+samueljohngomez@Samuels-MBP s3 % echo "I love bash scripting" >> conf.txt
+samueljohngomez@Samuels-MBP s3 % cat conf.txt
+I love bash scripting
+samueljohngomez@Samuels-MBP s3 % cd..
+zsh: command not found: cd..
+samueljohngomez@Samuels-MBP s3 % cd ..
+samueljohngomez@Samuels-MBP s1 % cd s2            
+samueljohngomez@Samuels-MBP s2 % touch text_chunk1.txt
+samueljohngomez@Samuels-MBP s2 % ls
+Advanced	text_chunk1.txt
+samueljohngomez@Samuels-MBP s2 % echo "A whole new world" >> text_chunk1.txt
+samueljohngomez@Samuels-MBP s2 % echo "A new fantastic point of view" >> text_chunk1.txt
+samueljohngomez@Samuels-MBP s2 % cat text_chunk1.txt
+A whole new world
+A new fantastic point of view
+samueljohngomez@Samuels-MBP s2 % cp text_chunk1.txt /Advanced/text_chunk2.txt
+cp: /Advanced/text_chunk2.txt: No such file or directory
+samueljohngomez@Samuels-MBP s2 % cp text_chunk1.txt ~Desktop/python_course/assignments_upstream_spring20/SUBMISSIONS/week_01/s1/s2/Advanced/text_chunk2.txt 
+zsh: no such user or named directory: Desktop
+samueljohngomez@Samuels-MBP s2 % cp text_chunk1.txt ~/Desktop/python_course/assignments_upstream_spring20/SUBMISSIONS/week_01/s1/s2/Advanced/text_chunk2.txt
+samueljohngomez@Samuels-MBP s2 % echo "Do you want to build a snowman?" >> /Advanced/text_chunk2.txt
+zsh: no such file or directory: /Advanced/text_chunk2.txt
+samueljohngomez@Samuels-MBP s2 % echo "Do you want to build a snowman?" >> ~/Desktop/python_course/assignments_upstream_spring20/SUBMISSIONS/week_01/s1/s2/Advanced/text_chunk2.txt
+samueljohngomez@Samuels-MBP s2 % cd Advanced
+samueljohngomez@Samuels-MBP Advanced % cat text_chunk2.txt
+A whole new world
+A new fantastic point of view
+Do you want to build a snowman?
+samueljohngomez@Samuels-MBP Advanced % 

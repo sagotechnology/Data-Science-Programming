@@ -2,17 +2,15 @@ import datetime
 import random
 import interface
 
-# generate a random size between 0 - 7
+
 def RandomSize():
     num = random.randint(0,7)
     return(str(num))
     
-# generate a random weight between 1200 - 1250    
 def RandomWeight():
     num = random.randint(1200,1250)
     return num
-
-# find an empty tote in tote list            
+            
 def Empty(tote_list):
     # iterate through every tote in tote_list
     for empty in tote_list:
@@ -20,66 +18,8 @@ def Empty(tote_list):
         if type(empty) == int:
             return empty  
 
-# loop user input until correct storage aisle is entered        
-def input_aisle():
-    aisle = input("Please enter aisle: ")
-    while check_aisle(aisle) == 1:
-        print("\n" + aisle,"is not a valid aisle.\n")
-        aisle = input("Please enter aisle: ")
-    return int(aisle)    
-
-# check that the correct storage aisle is entered    
-def check_aisle(num):
-    try:
-        user_input = int(num)
-        if type(user_input) == int and user_input < len(a.location):
-            return 0
-        else:
-            return 1
-    except ValueError:
-        return 1  
-
-# loop user input until correct storage column is entered      
-def input_column():
-    column = input("Please enter column: ")
-    while check_column(column) == 1:
-        print("\n" + column,"is not a valid column.\n")
-        column = input("Please enter column: ")
-    return int(column)    
-
-# check that the correct storage column is entered      
-def check_column(num):
-    try:
-        user_input = int(num)
-        if type(user_input) == int and user_input < len(a.location[0]):
-            return 0
-        else:
-            return 1
-    except ValueError:
-        return 1     
-
-# loop user input until correct storage row is entered 
-def input_row():
-    row = input("Please enter row: ")
-    while check_row(row) == 1:
-        print("\n" + row,"is not a valid row.\n")
-        row = input("Please enter row: ")
-    return int(row)    
-
-# check that the correct storage row is entered     
-def check_row(num):
-    try:
-        user_input = int(num)
-        if type(user_input) == int and user_input < len(a.location[0][0]):
-            return 0
-        else:
-            return 1
-    except ValueError:
-        return 1     
-
 
 class Order():
-    """This is the super class for Receiving Line and Wash Line orders."""
     count = 0
     
     def __init__(self, variety):
@@ -94,7 +34,6 @@ class ReceiveOrder(Order):
     available stroage location"""    
     
     count = 0
-    
     # An order must contain a varitey and the amount of pounds in the order
     def __init__(self, variety, pounds, storage):
         super().__init__(variety) 
@@ -105,7 +44,7 @@ class ReceiveOrder(Order):
         self.order_date = self.order_currentDT.month, self.order_currentDT.day, self.order_currentDT.year
         self.order_time = self.order_currentDT.hour, self.order_currentDT.minute
         
-    # This function executes the receiving line order.  It creates totes and puts them in Cold Storage A    
+    # This function runs the order and creates totes    
     def execute_a(self):
         self.remaining = self.pounds
         while self.remaining >= 1250:
@@ -130,7 +69,7 @@ class ReceiveOrder(Order):
         # Set tote location 
         tote[self.i].location = (a.name.capitalize(), self.j[0], self.j[1], self.j[2])
         
-    # This function executes the receiving line order.  It creates totes and puts them in Cold Storage B       
+    # This function runs the order and creates totes    
     def execute_b(self):
         self.remaining = self.pounds
         while self.remaining >= 1250:
@@ -146,7 +85,7 @@ class ReceiveOrder(Order):
         b.location[self.j[0]][self.j[1]][self.j[2]] = tote[self.i]
         tote[self.i].location = (b.name.capitalize(), self.j[0], self.j[1], self.j[2])
         
-    # This function executes the receiving line order.  It creates totes and puts them in Cold Storage C    
+    # This function runs the order and creates totes    
     def execute_c(self):
         self.remaining = self.pounds
         while self.remaining >= 1250:
@@ -162,7 +101,7 @@ class ReceiveOrder(Order):
         c.location[self.j[0]][self.j[1]][self.j[2]] = tote[self.i]
         tote[self.i].location = (c.name.capitalize(), self.j[0], self.j[1], self.j[2])
         
-    # This function executes the receiving line order.  It creates totes and puts them in Cold Storage D       
+    # This function runs the order and creates totes    
     def execute_d(self):
         self.remaining = self.pounds
         while self.remaining >= 1250:
@@ -177,8 +116,7 @@ class ReceiveOrder(Order):
         self.j = d.get_location()
         d.location[self.j[0]][self.j[1]][self.j[2]] = tote[self.i]
         tote[self.i].location = (d.name.capitalize(), self.j[0], self.j[1], self.j[2])
-    
-    # receiving line order represent    
+        
     def __repr__(self):
         return 'Variety: ' +str(self.variety).capitalize() + '\n' \
                 + 'Pounds: ' + str(self.pounds) + "\n" \
@@ -222,7 +160,7 @@ class WashOrder(Order):
                         print(tote)
                         print() 
         
-    # wash line order represent    
+        
     def __repr__(self):
         return 'Variety : ' +str(self.variety).capitalize() + '\n' \
                 + 'Pounds : ' + str(self.pounds) + "\n" \
@@ -316,7 +254,6 @@ class ColdStorage():
     aisle, columns, and rows.  Once totes are created using a receiving 
     order they are placed into inventory."""
     
-    # cold storage must have a name and defined aisles, columns, and rows
     def __init__(self, name, num_aisles = 0, num_columns = 0, num_rows = 0):
         self.location = []
         self.name = name
@@ -326,16 +263,14 @@ class ColdStorage():
                 self.location[self.a].append([])
                 for self.r in range(num_rows):
                     self.location[self.a][self.c].append(0)
-                    
-    # find specified location
+    
     def get_location(self):
         for self.a in range(len(self.location)):
             for self.c in range(len(self.location[self.a])):
                 for self.r in range(len(self.location[self.a][self.c])):
                     if type(self.location[self.a][self.c][self.r]) != Tote:
-                        return self.a, self.c, self.r 
-                    
-    # display all contents of the cold storage
+                        return self.a, self.c, self.r  
+    
     def display(self):
         for self.a in range(len(self.location)):
             for self.c in range(len(self.location[self.a])):
@@ -344,7 +279,6 @@ class ColdStorage():
                         print(self.location[self.a][self.c][self.r])
                         print()
                         
-    # display all totes of certain size in the cold storage
     def display_size(self, size):
         self.size = size
         for self.a in range(len(self.location)):
@@ -354,8 +288,7 @@ class ColdStorage():
                         self.location[self.a][self.c][self.r].tote_size == str(self.size):
                         print(self.location[self.a][self.c][self.r])
                         print()
-                        
-    # display all totes of a certain variety in the cold storage
+    
     def display_variety(self, variety):
         self.variety = str(variety)
         if self.variety in ['purple', 'red', 'yellow']:
@@ -369,7 +302,6 @@ class ColdStorage():
         else:
             print(self.variety.capitalize(), "is not a valid variety." )
             
-    # display all totes of a certain variety and size in the cold storage    
     def display_variety_size(self, variety, size):
         self.variety = str(variety)
         self.size = size
@@ -384,8 +316,7 @@ class ColdStorage():
                             print()
         else:
             print(self.variety.capitalize(), "is not a valid variety." )
-     
-    # remove a tote of specific criteria from the cold storage in FIFO order    
+            
     def get_tote(self, variety, size):
         self.variety = variety
         self.size = size
@@ -546,9 +477,9 @@ def operator_interface():
             
             # Find by location
             elif cmd == '4':
-                find_aisle = input_aisle()
-                find_column = input_column()
-                find_row = input_row()
+                find_aisle = interface.input_aisle()
+                find_column = interface.input_column()
+                find_row = interface.input_row()
                 print()
                 print(a.location[find_aisle][find_column][find_row])
                 
