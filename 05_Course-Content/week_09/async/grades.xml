@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<students>
+	<student name="John">
+		<grade value="88" />
+	</student>
+	<student name="Kate">
+		<grade value="93" />
+	</student>
+	<student name="Harry">
+		<grade value="93" />
+	</student>
+	<student name="Linda">
+		<grade value="87" />
+	</student>
+	<student name="Harriet">
+		<grade value="91" />
+	</student>
+</students>

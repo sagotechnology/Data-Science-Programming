@@ -1,0 +1,10 @@
+https://www.neuraldesigner.com/blog/genetic_algorithms_for_feature_selection
+
+https://towardsdatascience.com/genetic-algorithm-implementation-in-python-5ab67bb124a6
+
+https://www.statisticshowto.datasciencecentral.com/matrices-and-matrix-algebra/
+
+https://docs.scipy.org/doc/numpy/user/quickstart.html
+
+https://timothyhelton.github.io/pandas_best_practices.html
+
